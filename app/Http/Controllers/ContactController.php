@@ -36,6 +36,20 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //
+//        var_dump($request);
+//        exit();
+        $inputs = $request->input();
+        //$inputs = compact('inputs');
+        //Contact::create(compact($inputs))->save();
+        $contact = new Contact();
+        $contact->fullname = $request->fullname; //Input::get('fullname'); 
+        $contact->email = $request->email;
+        $contact->phone = $request->phone;
+        $contact->message = $request->message;
+
+        $contact->save();
+
+        return view('contacts/store', ['inputs' => $inputs]);
     }
 
     /**

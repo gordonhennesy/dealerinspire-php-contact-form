@@ -123,16 +123,20 @@
                                 <form id="contact-form" class="form-inline d-flex" action="contacts/store" method="POST">
                                     @csrf
                                     <div class="row">
-                                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputName" type="text" size="50" padding = '20' placeholder="Enter full name...">
+                                        <input name="fullname" class="form-control flex-fi$ll mr-0 mr-sm-2 mb-3 mb-sm-0" id="fullname" type="text" size="50" padding = '20' placeholder="Enter full name...">
+                                        </input>
                                      </div>
                                     <div class="row">
-                                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" size="50" placeholder="Enter email address...">
+                                        <input name="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="email" type="email" size="50" placeholder="Enter email address...">
+                                        </input>
                                      </div>
                                     <div class="row">
-                                        <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPhone" type="phone" size="50" placeholder="Enter phone number...">
+                                        <input name="phone" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="phone" type="phone" size="50" placeholder="Enter phone number...">
+                                        </input>
                                      </div>
                                     <div class="row">
-                                        <textarea class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputMessage" type="textarea" rows="4" cols="50" placeholder="Enter message..."></textarea>
+                                        <textarea name="message" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="message" type="textarea" rows="4" cols="50" placeholder="Enter message..."></textarea>
+                                        </textarea>
                                      </div>
                                     <div class="row">
                                         <button class="btn btn-primary mx-auto" type="submit">Send Message</button>
