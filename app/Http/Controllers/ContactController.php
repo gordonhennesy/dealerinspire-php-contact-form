@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Mail\ContactMailer;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -35,6 +37,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        $to_name = 'Gordon hennesy';
+        $to_email = 'gordonhennesy@gmail.com'; //‘RECEIVER_EMAIL_ADDRESS’;
+        $data = array('name'=>"Ogbonna Vitalis(sender_name)", 'body' => "A test mail");
+        Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)->subject('Laravel Test Mail');
+            $message->from('smiley@example.com','Test Mail');
+        });
         //
 //        var_dump($request);
 //        exit();
@@ -48,7 +57,6 @@ class ContactController extends Controller
         $contact->message = $request->message;
 
         $contact->save();
-
         return view('contacts/store', ['inputs' => $inputs]);
     }
 
