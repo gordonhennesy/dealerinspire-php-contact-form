@@ -37,26 +37,35 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $to_name = 'Gordon hennesy';
-        $to_email = 'gordonhennesy@gmail.com'; //‘RECEIVER_EMAIL_ADDRESS’;
-        $data = array('name'=>"Ogbonna Vitalis(sender_name)", 'body' => "A test mail");
-        Mail::send('emails.mail', $data, function($message) use ($to_name, $to_email) {
-            $message->to($to_email, $to_name)->subject('Laravel Test Mail');
-            $message->from('smiley@example.com','Test Mail');
-        });
-        //
-//        var_dump($request);
-//        exit();
+
+        $to_name = 'Guy Smiley';
+        $to_email = 'smiley@example.com'; //'RECEIVER_EMAIL_ADDRESS';
         $inputs = $request->input();
-        //$inputs = compact('inputs');
-        //Contact::create(compact($inputs))->save();
+
         $contact = new Contact();
-        $contact->fullname = $request->fullname; //Input::get('fullname'); 
+
+        $contact->fullname = $request->fullname; //
         $contact->email = $request->email;
         $contact->phone = $request->phone;
         $contact->message = $request->message;
 
         $contact->save();
+
+        // Here we collect the form data to be sent to the email template,
+        // and handed off to the Email class for sending.
+        $data = array(
+            'fullname' => "".$request->fullname . "",
+            'email' => "" . $request->email . "",
+            'phone' => "" . $request->phone . "",
+            'inputmessage' => "" . $request->message . "",
+        ); 
+        
+        $from_email = $request->email;
+        $from_name = $request->fullname;
+        Mail::send('emails.contact', $data, function($message) use ($to_name, $to_email, $from_email, $from_name) {
+            $message->to($to_email, $to_name)->subject('Contact Test Mail');
+            $message->from($from_email, $from_name);
+        });
         return view('contacts/store', ['inputs' => $inputs]);
     }
 
