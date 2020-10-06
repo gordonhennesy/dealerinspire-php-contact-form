@@ -42,6 +42,14 @@ class ContactController extends Controller
         $to_email = 'smiley@example.com'; //'RECEIVER_EMAIL_ADDRESS';
         $inputs = $request->input();
 
+        $validatedData = $request->validate([
+            'fullname' => 'required|max:255',
+            'email' => 'required',
+            'phone' => 'nullable',
+            'message' => 'required',
+        ]);
+        // Create a database object to store the form fields
+        // to be sent as an email in the second step
         $contact = new Contact();
 
         $contact->fullname = $request->fullname; //
@@ -66,7 +74,8 @@ class ContactController extends Controller
             $message->to($to_email, $to_name)->subject('Contact Test Mail');
             $message->from($from_email, $from_name);
         });
-        return view('contacts/store', ['inputs' => $inputs]);
+        return redirect('/#contact');
+        //return view('contacts/store', ['inputs' => $inputs]);
     }
 
     /**

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -120,27 +120,53 @@
                             <div class="col-md-10 col-lg-8 mx-auto text-center">
                                 <!-- i class="far fa-paper-plane fa-2x mb-2 text-white"></i -->
                                 <!-- h2 class="text-white mb-5">Subscribe to receive updates!</h2 -->
+
                                 <form id="contact-form" class="form-inline d-flex" action="contacts/store" method="POST">
                                     @csrf
+                                    {{ $errors }}
                                     <div class="row">
                                         <input name="fullname" class="form-control flex-fi$ll mr-0 mr-sm-2 mb-3 mb-sm-0" id="fullname" type="text" size="50" padding = '20' placeholder="Enter full name...">
                                         </input>
+                                        @error('fullname')
+                                            <div class="alert alert-danger">{{ $errors }}</div>
+                                        @enderror
                                      </div>
                                     <div class="row">
                                         <input name="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="email" type="email" size="50" placeholder="Enter email address...">
                                         </input>
+                                        @error('email')
+                                            <div class="alert alert-danger">{{ $errors }}</div>
+                                        @enderror
                                      </div>
                                     <div class="row">
                                         <input name="phone" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="phone" type="phone" size="50" placeholder="Enter phone number...">
                                         </input>
+                                        @error('phone')
+                                            <div class="alert alert-danger">{{ $errors }}</div>
+                                        @enderror
                                      </div>
                                     <div class="row">
                                         <textarea name="message" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="message" type="textarea" rows="4" cols="50" placeholder="Enter message..."></textarea>
                                         </textarea>
+                                        @error('message')
+                                            <div class="alert alert-danger">{{ $errors }}</div>
+                                        @enderror
                                      </div>
                                     <div class="row">
                                         <button class="btn btn-primary mx-auto" type="submit">Send Message</button>
                                      </div>
+                                    
+                                    @if(count($errors))
+                                        <div class="form-group">
+                                            <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach($errors->all() as $error)
+                                                    <li>{{$error}}</li>
+                                                @endforeach
+                                            </ul>
+                                            </div>
+                                        </div>
+        @endif
                                 </form>
 
                             </div>
