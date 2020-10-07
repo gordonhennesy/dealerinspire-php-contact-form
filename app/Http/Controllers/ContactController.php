@@ -10,27 +10,8 @@ use Illuminate\Support\Facades\Mail;
 class ContactController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Store a newly created contact in the database, and send 
+     * the related email (to Guy Smiley).
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -71,57 +52,21 @@ class ContactController extends Controller
         
         $from_email = $request->email;
         $from_name = $request->fullname;
-        /*
+        
         Mail::send('emails.contact', $data, function($message) use ($to_name, $to_email, $from_email, $from_name) {
             $message->to($to_email, $to_name)->subject('Contact Test Mail');
             $message->from($from_email, $from_name);
         });
-         */
+ 
         return redirect('/#contact')->with('success_message','Form submitted successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contact $contact)
-    {
-        //
-    }
+    protected function buildFailedValidationResponse(Request $request, array $errors)
+    {   
+        //if ($request->expectsJson()) {
+        //    return new JsonResponse($errors, 422);
+        //}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contact $contact)
-    {
-        //
+        return redirect()->route('/contact#');//->withErrors($errors);
     }
 }
