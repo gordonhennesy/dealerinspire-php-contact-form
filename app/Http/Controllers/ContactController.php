@@ -48,6 +48,7 @@ class ContactController extends Controller
             'phone' => 'nullable',
             'message' => 'required',
         ]);
+
         // Create a database object to store the form fields
         // to be sent as an email in the second step
         $contact = new Contact();
@@ -70,12 +71,13 @@ class ContactController extends Controller
         
         $from_email = $request->email;
         $from_name = $request->fullname;
+        /*
         Mail::send('emails.contact', $data, function($message) use ($to_name, $to_email, $from_email, $from_name) {
             $message->to($to_email, $to_name)->subject('Contact Test Mail');
             $message->from($from_email, $from_name);
         });
-        return redirect('/#contact');
-        //return view('contacts/store', ['inputs' => $inputs]);
+         */
+        return redirect('/#contact')->with('success_message','Form submitted successfully!');
     }
 
     /**
