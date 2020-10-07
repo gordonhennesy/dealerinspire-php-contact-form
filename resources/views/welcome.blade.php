@@ -144,7 +144,7 @@
                                         <input name="fullname" class="@error('email', 'login') is-invalid @enderror form-control flex-fi$ll mr-0 mr-sm-2 mb-3 mb-sm-0" id="fullname" type="text" size="50" padding = '20' placeholder="Enter full name...">
                                         </input>
                                         @error('fullname')
-                                            <div class="alert alert-danger">Fullname is required{{ $message }}</div>
+                                            <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                      </div>
                                     <div class="row">
