@@ -54,6 +54,7 @@ class FormValidationTest extends TestCase
         $response->assertStatus(302);
         $response->assertSessionHasErrors(['message']);
     }
+    /*
     public function testFormValidationPassesTest()
     {
         $response = $this->post('contacts/store', 
@@ -73,10 +74,5 @@ class FormValidationTest extends TestCase
                 'message',
             ]);
     }
-    public function testBasicTest()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
+*/
 }
