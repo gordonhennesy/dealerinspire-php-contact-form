@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
-use App\Mail\ContactMailer;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
@@ -59,14 +58,5 @@ class ContactController extends Controller
         });
  
         return redirect('/#contact')->with('success_message','Form submitted successfully!');
-    }
-
-    protected function buildFailedValidationResponse(Request $request, array $errors)
-    {   
-        //if ($request->expectsJson()) {
-        //    return new JsonResponse($errors, 422);
-        //}
-
-        return redirect()->route('/contact#');//->withErrors($errors);
     }
 }
