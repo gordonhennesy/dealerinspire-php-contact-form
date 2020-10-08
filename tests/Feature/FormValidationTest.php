@@ -54,25 +54,4 @@ class FormValidationTest extends TestCase
         $response->assertStatus(302);
         $response->assertSessionHasErrors(['message']);
     }
-    /*
-    public function testFormValidationPassesTest()
-    {
-        $response = $this->post('contacts/store', 
-            [
-            'fullname'   => 'Gordon Hennesy', // Must be non-null
-            'email'      => 'name@example.com',
-            'phone'      => '(541) 555-1212',
-            'message'    => 'Lorem ipsum',
-            ]
-        );
-
-        $response->assertStatus(302);
-        $response->assertSessionDoesntHaveErrors(
-            [
-                'fullname',
-                'email',
-                'message',
-            ]);
-    }
-*/
 }
