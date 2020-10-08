@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -16,7 +16,6 @@ class DatabaseTest extends TestCase
      */
     public function testExample()
     {
-        //Contact::create(['fullname'=>'Gordon H','email'=>'g@example.com','phone'=>'555-1212','message'=>'Test mess']);
         $contact = Contact::create(['fullname'=>'Gordon H','email'=>'g@example.com','phone'=>'555-1212','message'=>'Test mess']);
         $this->assertTrue($contact->fullname=='Gordon H');
     }

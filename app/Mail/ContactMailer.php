@@ -38,6 +38,5 @@ class ContactMailer extends Mailable
                         'phone' => $this->contact->phone,
                         'message' => $this->contact->message
                     ]);
-        //return $this->view('view.name');
     }
 }

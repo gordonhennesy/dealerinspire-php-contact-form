@@ -29,6 +29,5 @@ class TestMailer extends Mailable
     {
         return $this->from('example@example.com')
         ->view('emails.mail', ['name'=>"Gambleputty", 'body'=>"<h1>Sent</h1>"]);
-        //return $this->view('view.name');
     }
 }
