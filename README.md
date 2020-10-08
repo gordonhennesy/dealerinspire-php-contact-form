@@ -45,12 +45,11 @@ Next, run
 
 Use the following instructions for making the website actually send an email. (be advised, the email address smiley@example.com is NOT an actual address)
 
--edit the .env file, remote the lines that begin with MAIL_ and substitute the following (with your configuration details)
+Edit the .env file, remote the lines that begin with MAIL_ and substitute the following (with your configuration details)
 
--this example uses GMAIL as a host, you will need to add your username and password to the .env file (on your local machine, ONLY, of course)
+This example uses GMAIL as a host, you will need to add your username and password to the .env file (on your local machine, ONLY, of course)
 NOTE: you will have to go into your google gmail settings to allow "Less secure apps" to access Gmail
 
-    MAIL_MAILER=log
     MAIL_DRIVER=smtp
     MAIL_HOST=smtp.googlemail.com
     MAIL_PORT=465
@@ -58,8 +57,10 @@ NOTE: you will have to go into your google gmail settings to allow "Less secure 
     MAIL_PASSWORD=yourgooglepassword
     MAIL_ENCRYPTION=ssl
 
-- For testing purposes, and to see how your email looks on different devices, you may wish to set up mailtrap. Signing up
-is free, and you can log onto your account, and any emails you send (regardless of the TO: address) end up in your inbox folders,
+- Mailtrap.
+
+For testing purposes, and to see how your email looks on different devices, you may wish to set up mailtrap. Signing up
+is free at [Mailtrap](https://mailtrap.io), and you can log onto your account, and any emails you send (regardless of the TO: address) end up in your inbox folders,
 so that you make sure that they were sent. The website allows you to see what the emails look like on different devices, as
 well.
 
