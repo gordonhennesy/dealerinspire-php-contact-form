@@ -12,24 +12,22 @@ Prerequisites:
 
 Please run the following commands
 
-- cp .env.example .env
--- this sets up a number of environment variables which Laravel relies on
-- EDIT the .env file (to set up any email, or database account info and passwords (see the config files referred to
+1. cp .env.example .env # this sets up a number of environment variables which Laravel relies on
+    1. EDIT the .env file (to set up any email, or database account info and passwords (see the config files referred to
 HERE)
-1. composer update
-    1. this will install prerequisites for running this Laravel implementation
+1. composer update # This will install prerequisites for running this Laravel implementation
 1. php artisan key:generate
 1. php artisan migrate
 1. phpunit # this will run the tests, verifying that emailing, database insertion, and validation on form fields is working
 1. If you don't want to reconfigure anything from the .env file, then you can run the file setup.sh
+
 ## Verification
 
-Next, run
+Next, run the webserver from the command line
 
 - The initial configuration has it set up so that emails are written to the log. Run the following command:
-
-
-- tail storage/logs/laravel.logo 
+    
+    tail storage/logs/laravel.logo 
 
 - To check that the form submission is working, run the following command:
 - php -S 127.0.0.1:9999 -t public
