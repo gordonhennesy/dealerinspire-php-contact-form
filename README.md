@@ -79,16 +79,11 @@ are as follows:
 
 - MySQL:
 
+Again, in the .env file replace all lines beginning with DB_ with the following block of lines
+
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
     DB_DATABASE=laravel
     DB_USERNAME=root
     DB_PASSWORD=
-
-
-Email
-
-- 
-
- 
