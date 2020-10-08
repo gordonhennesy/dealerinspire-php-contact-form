@@ -14,17 +14,6 @@ use App\Http\Controllers\ContactController;
 |
 */
 Route::post('/contacts/store', 'App\Http\Controllers\ContactController@store');
-/*
-Route::post('/contacts/store', function () {
-    return "<h1>Contacts store</h1>";
-});
-*/
-Route::get('/contacts/create', function () {
-    return "<h1>Contacts create</h1>";
-});
-Route::get('/contacts', function () {
-    return "<h1>Contacts</h1>";
-});
 Route::get('/', function () {
     return view('welcome');
 });

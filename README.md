@@ -82,3 +82,21 @@ Again, in the .env file replace all lines beginning with DB_ with the following 
     DB_DATABASE=laravel
     DB_USERNAME=root
     DB_PASSWORD=
+
+## List of files created or altered by me:
+
+Since this repository is filled with a lot of files having to do with the framework, this is a list of
+files that I have edited or created as part of this challenge:
+
+    app/Http/Controllers/ContactController.php
+    app/Mail/TestMailer.php
+    app/Mail/ContactMailer.php
+    app/Models/Contact.php
+    routes/web.php
+    resources/views/welcome.blade.php
+    resources/views/emails/contact.blade.php
+    resources/views/emails/mail.blade.php
+    tests/Feature/FormValidationTest.php
+    tests/Unit/DatabaseTest.php
+    tests/Unit/MailerTest.php
+
