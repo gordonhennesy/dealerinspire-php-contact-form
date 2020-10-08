@@ -27,7 +27,7 @@ Next, run the webserver from the command line
 
 - The initial configuration has it set up so that emails are written to the log. Run the following command:
     
-    tail storage/logs/laravel.logo 
+    tail storage/logs/laravel.log 
 
 - To check that the form submission is working, run the following command:
 - php -S 127.0.0.1:9999 -t public
