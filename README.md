@@ -33,14 +33,62 @@ Next, run
 - The initial configuration has it set up so that emails are written to the log. Run the following command:
 
 
-- tail storage/logs/laravel.log
+- tail storage/logs/laravel.logo 
 
 - To check that the form submission is working, run the following command:
 - php -S 127.0.0.1:9999 -t public
-
+- open a browser and navigate to http://localhost:9999
 - Click on the Contacts link at the upper right of the page to scroll to the submission form
 - Fill out the form fields (Fullname, Email, and Message are required; if you leave them blank, you will be returned to the form and will be given a chance to re-enter)
 
+## Email configuration
 
+Use the following instructions for making the website actually send an email. (be advised, the email address smiley@example.com is NOT an actual address)
+
+-edit the .env file, remote the lines that begin with MAIL_ and substitute the following (with your configuration details)
+
+-this example uses GMAIL as a host, you will need to add your username and password to the .env file (on your local machine, ONLY, of course)
+NOTE: you will have to go into your google gmail settings to allow "Less secure apps" to access Gmail
+
+    MAIL_MAILER=log
+    MAIL_DRIVER=smtp
+    MAIL_HOST=smtp.googlemail.com
+    MAIL_PORT=465
+    MAIL_USERNAME=yourgoogleusername@gmail.com
+    MAIL_PASSWORD=yourgooglepassword
+    MAIL_ENCRYPTION=ssl
+
+- For testing purposes, and to see how your email looks on different devices, you may wish to set up mailtrap. Signing up
+is free, and you can log onto your account, and any emails you send (regardless of the TO: address) end up in your inbox folders,
+so that you make sure that they were sent. The website allows you to see what the emails look like on different devices, as
+well.
+
+    MAIL_DRIVER=smtp
+    MAIL_HOST=smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=USERNAME_FROM_YOUR_MAILTRAP_ACCOUNT
+    MAIL_PASSWORD=PASSWORD_FROM_YOUR_MAILTRAP_ACCOUNT
+    MAIL_ENCRYPTION=null
+    MAIL_FROM_ADDRESS=null
+    MAIL_FROM_NAME="${APP_NAME}"
+
+## Database configuration
+
+- If you want to actually store results in a database other than sqlite, configuration options in the .env file
+are as follows:
+
+- MySQL:
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=
+
+
+Email
 
 - 
+
+ 
