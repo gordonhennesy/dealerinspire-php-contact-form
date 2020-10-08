@@ -7,9 +7,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Dealer Inspire Contact Form Submission Code Challenge 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This is a Laravel implementation of a website, which displays a page containing a form which,
+when submitted, emails the contents to an email address, and also stores the field values
+in a database table.
+
+Prerequisites:
+- [Laravel](https://laravel.com/)
+- [Composer]()
+- []
+
+
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
@@ -21,7 +30,18 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Setup
+
+Please run the following commands
+
+- cp .env.example .env
+-- this sets up a number of environment variables which Laravel relies on
+- EDIT the .env file (to set up any email, or database account info and passwords (see the config files referred to
+HERE)
+- composer update
+-- this will install prerequisites for running this Laravel implementation
+- php artisan key:generate
+- php artisan migrate
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
