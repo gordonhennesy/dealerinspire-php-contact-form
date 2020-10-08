@@ -1,6 +1,3 @@
-<p align=center><h2>Dealer Inspire Code Challenge</h2>
-</p>
-
 ## Dealer Inspire Contact Form Submission Code Challenge 
 
 This is a Laravel implementation of a website, which displays a page containing a form which,
@@ -8,9 +5,8 @@ when submitted, emails the contents to an email address, and also stores the fie
 in a database table.
 
 Prerequisites:
+- [Composer](https://getcomposer.org/download/)
 - [Laravel](https://laravel.com/)
-- [Composer]()
-- []
 
 ## Setup
 
@@ -20,12 +16,12 @@ Please run the following commands
 -- this sets up a number of environment variables which Laravel relies on
 - EDIT the .env file (to set up any email, or database account info and passwords (see the config files referred to
 HERE)
-- composer update
--- this will install prerequisites for running this Laravel implementation
-- php artisan key:generate
-- php artisan migrate
-- phpunit # this will run the tests, verifying that emailing, database insertion, and validation on form fields is working
-
+1. composer update
+    1. this will install prerequisites for running this Laravel implementation
+1. php artisan key:generate
+1. php artisan migrate
+1. phpunit # this will run the tests, verifying that emailing, database insertion, and validation on form fields is working
+1. If you don't want to reconfigure anything from the .env file, then you can run the file setup.sh
 ## Verification
 
 Next, run
